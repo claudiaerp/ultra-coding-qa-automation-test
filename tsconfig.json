@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "types": [
+            "@wdio/globals/types",
+            "node",
+            "@wdio/cucumber-framework",
+            "expect-webdriverio"
+        ],
+        "target": "es6",
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "typeRoots": [
+            "./node_modules/@types"
+        ],
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}

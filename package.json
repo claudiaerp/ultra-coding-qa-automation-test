@@ -1,0 +1,80 @@
+{
+    "name": "ultra-coding-qa-automation-test",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Claudia Reyes",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "build": "npx tsc",
+        "localhost": "run-script-os",
+        "localhost:default": "npm run report:clean && npx wdio run config/wdio.chrome.conf.ts",
+        "gherkin-lint": "gherkin-lint",
+        "eslint": "eslint service-layer/ config/ pages/ step-definitions/ support/ --ext .ts,.js --no-fix --debug",
+        "eslint:fix": "eslint service-layer/ config/ pages/ step-definitions/ support/ --ext .ts,.js --fix --debug",
+        "report:allure": "allure generate reports/allure-results --clean && allure open",
+        "report:sandwich": "java -jar support/cucumber-sandwich.jar -n -f reports/json-reports -o reports/",
+        "report:clean": "rimraf reports/json-reports/",
+        "prepare": "husky install",
+        "wdio": "wdio run ./wdio.conf.ts"
+    },
+    "dependencies": {
+        "@commitlint/prompt-cli": "^17.6.3",
+        "@typescript-eslint/eslint-plugin": "^5.59.7",
+        "@typescript-eslint/parser": "^5.59.7",
+        "@wdio/cli": "^8.10.5",
+        "@wdio/reporter": "^8.10.4",
+        "chai-sorted": "^0.2.0",
+        "cucumber-pretty": "^6.0.1",
+        "deep-equal-in-any-order": "^2.0.6"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^17.6.3",
+        "@commitlint/config-conventional": "^17.6.3",
+        "@rpii/wdio-commands": "^8.0.2",
+        "@rpii/wdio-report-events": "^8.0.2",
+        "@types/node": "^20.2.5",
+        "@wdio/allure-reporter": "^8.10.4",
+        "@wdio/browser-runner": "^8.10.5",
+        "@wdio/cucumber-framework": "^8.10.4",
+        "@wdio/local-runner": "^8.10.5",
+        "@wdio/mocha-framework": "^8.10.4",
+        "@wdio/selenium-standalone-service": "^8.10.4",
+        "@wdio/spec-reporter": "^8.10.5",
+        "@wdio/types": "^8.10.4",
+        "allure-commandline": "^2.22.1",
+        "chai": "^4.3.7",
+        "chai-as-promised": "^7.1.1",
+        "chai-exclude": "^2.1.0",
+        "chromedriver": "^113.0.0",
+        "eslint": "^8.41.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-standard": "^4.1.0",
+        "gherkin-lint": "^4.2.2",
+        "husky": "^8.0.3",
+        "moment": "^2.29.4",
+        "prettier": "^2.8.8",
+        "rimraf": "^5.0.1",
+        "run-script-os": "^1.1.6",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4",
+        "typescript-string-operations": "^1.5.0",
+        "wdio-chromedriver-service": "^8.1.1",
+        "wdio-cucumberjs-json-reporter": "^5.1.4",
+        "wdio-json-reporter": "^3.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "yarn build && yarn eslint && yarn gherkin-lint"
+        }
+    },
+    "resolutions": {
+        "ua-parser-js": "1.0.1"
+    }
+}

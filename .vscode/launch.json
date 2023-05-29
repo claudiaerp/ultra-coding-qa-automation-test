@@ -1,0 +1,26 @@
+{
+    "version": "1.0.0",
+    "configurations": [
+      {
+        "name": "run select by spec by tag",
+        "type": "node",
+        "request": "launch",
+        "args": [
+          "config/wdio.chrome.conf.ts", 
+          "--spec",
+          "${file}:${lineNumber}", 
+          "--cucumberOpts.tagExpression=${selectedText}"
+        ],
+        "env": { "QP_ENV" : "master" },
+        "cwd": "${workspaceFolder}",
+        "autoAttachChildProcesses": true,
+        "program": "${workspaceRoot}/node_modules/@wdio/cli/bin/wdio.js",
+        "console": "integratedTerminal",
+        "skipFiles": [
+            "${workspaceFolder}/node_modules/**/*.js",
+            "${workspaceFolder}/lib/**/*.js",
+            "<node_internals>/**/*.js"
+        ]
+      }
+    ]
+}
