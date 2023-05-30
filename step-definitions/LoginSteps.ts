@@ -3,6 +3,7 @@ import { loginPage } from '../pages/LoginPage';
 import users from '../test-data/users.json';
 
 Given(/^I login as an "(.+)" user/, async function(userRole: string) {
+  await browser.maximizeWindow()
   await browser.url(browser.options.baseUrl);
   this.currentUser = userRole;
   const user = users[userRole];

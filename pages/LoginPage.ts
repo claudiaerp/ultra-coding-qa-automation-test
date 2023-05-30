@@ -1,6 +1,4 @@
-import { ChainablePromiseElement } from 'webdriverio';
-
-class LoginPage {
+class LoginPage{
   get username() {
     return $('#user-name');
   }
