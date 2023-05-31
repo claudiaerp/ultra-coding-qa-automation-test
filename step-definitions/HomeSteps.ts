@@ -2,15 +2,11 @@ import { When, Then, DataTable} from '@cucumber/cucumber';
 import { homePage } from '../pages/HomePage';
 import { menu } from '../pages/Menu';
 
-Then(/^I should be redirected to the Home page/, async function() {
-  expect(homePage.pageTitle).toBeDisplayed();
-  expect(await homePage.getPageTitle()).toEqual('Products');
-});
-
-When(/^I( add| remove) the following products?( to| from) the cart$/, async function(action: string, option: string, dataTable: DataTable) {
+When(/^I (add|remove) the following products? (to|from) the cart$/, async function(action: string, option: string, dataTable: DataTable) {
+  await browser.pause(1500);
   const products = dataTable.hashes()[0]['products_names'].split(',');
   for (const product of products) {
-    await homePage.clickCartButton(product, action.trim());
+    await homePage.clickCartButton(product, action);
   }
 });
 

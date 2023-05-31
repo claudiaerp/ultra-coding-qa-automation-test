@@ -1,4 +1,4 @@
-@login
+@login @e2e
 Feature: Logging into Swag Labs
   As a user
   I want to be able to log into Swag Labs
@@ -7,7 +7,9 @@ Feature: Logging into Swag Labs
   @validLogin
   Scenario: Logging into Swag Labs with a valid user
     Given I login as an "standard_user" user
-    Then I should be redirected to the Home page
+    Then I should be redirected to the "Home" page
+      | page_title |
+      | Products   |
 
   @invalidLogin
   Scenario Outline: Logging into Swag Labs with an invalid user should fail
