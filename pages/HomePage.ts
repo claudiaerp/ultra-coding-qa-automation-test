@@ -1,14 +1,6 @@
 class HomePage {
-  get pageTitle() {
-    return $(`//span[@class="title"]`);
-  }
-
   public readonly addToCartBtnLocator: string = `#add-to-cart-`;
   public readonly removeFromCartBtnLocator: string = `#remove-`;
-
-  public async getPageTitle(): Promise<string> {
-    return await this.pageTitle.getText();
-  }
 
   public async clickCartButton(itemName: string, action: string){
     let itemFullLocator: string = '';
@@ -31,7 +23,7 @@ class HomePage {
       const isVisible: boolean = await removeFromCartBtn.isDisplayed();
       if (isVisible) {
         const currentCssValue = await removeFromCartBtn.getAttribute('class');
-        isErrorStyleApplied = currentCssValue.includes('btn_secondary'); // true
+        isErrorStyleApplied = currentCssValue.includes('btn_secondary');
       }
     }
     return isErrorStyleApplied;

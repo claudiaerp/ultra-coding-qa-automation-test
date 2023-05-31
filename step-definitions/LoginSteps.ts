@@ -15,11 +15,4 @@ Then(/^I should be on the login page/, async function() {
   await expect(loginPage.password).toBeDisplayed();
 });
 
-Then(/^I should see an error displayed with the following message$/, async function(dataTable) {
-  const expectedErrorMessage: string = String(dataTable.raw()[0]);
-  const actualErrorMessage: string = await loginPage.getErrorMessage();
-  expect(actualErrorMessage).toEqual(expectedErrorMessage);
-});
-
-
 

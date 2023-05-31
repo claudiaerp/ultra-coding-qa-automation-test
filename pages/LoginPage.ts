@@ -8,9 +8,6 @@ class LoginPage{
   get loginBtn() {
     return $('#login-button');
   }
-  get loginErrorH3() {
-    return $(`//div[@class="error-message-container error"]//h3`);
-  }
 
   async login(email: string, password: string): Promise<void> {
     await this.setUsername(email);
@@ -30,10 +27,6 @@ class LoginPage{
 
   async clickLogin(): Promise<void> {
     this.loginBtn.click();
-  }
-
-  public async getErrorMessage(): Promise<string> {
-    return await this.loginErrorH3.getText();
   }
 }
 
