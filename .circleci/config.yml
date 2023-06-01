@@ -1,0 +1,42 @@
+version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.4.1
+jobs:
+  test:
+    docker:
+      - image: cimg/openjdk:18.0.1-node
+    steps:
+      - browser-tools/install-chrome
+      - checkout 
+      - run: npm install npm@8.5.5
+      - run: |
+          node --version
+          npm --version
+          java --version
+          google-chrome --version
+          /usr/bin/google-chrome --version
+      - run:
+          name: Make Report Directory
+          command: mkdir reports
+      - run:
+          name: Download Selenium Standalone Server
+          command: curl -O https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.9.0/selenium-server-4.9.1.jar
+      - run:
+          name: Install Node Modules
+          command: npm install
+      - run:
+          name: Run Tests
+          command: npm run ci || true
+      - run:
+          name: Generate Reports
+          command: npm run report:sandwich
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
+          destination: reports
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
