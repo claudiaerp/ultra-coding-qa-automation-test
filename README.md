@@ -1,6 +1,8 @@
 # ultra-coding-qa-automation-test
 ultra-coding-qa-automation-test
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/claudiaerp/ultra-coding-qa-automation-test/tree/master.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/claudiaerp/ultra-coding-qa-automation-test/tree/master)
+
 ## Purpose of the project:
 The expected outcome is an automated test framework for the https://www.saucedemo.com/ dummy website.
 
@@ -80,9 +82,9 @@ To debug scenarios using break points, use `run select by spec by tag` launch
 ## Circle CI:
 https://app.circleci.com/pipelines/github/claudiaerp/ultra-coding-qa-automation-test
 
-i. On the latest build, click `test` on `Workflow` column
-ii. Click `test` job
-iii. All Steps ran on this build will display
-iv. Click `ARTIFACTS` tab
-v. Click `reports/cucumber-html-reports/cucumber-html-reports/overview-features.html` link
-vi. A Cucumber HTML report will display showing the test results
+1. On the latest build, click `test` on `Workflow` column
+2. Click `test` job
+3. All Steps ran on this build will display
+4. Click `ARTIFACTS` tab
+5. Click `reports/cucumber-html-reports/cucumber-html-reports/overview-features.html` link
+6. A Cucumber HTML report will display showing the test results
