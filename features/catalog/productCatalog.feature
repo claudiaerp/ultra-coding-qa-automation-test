@@ -1,4 +1,4 @@
-@productCatalog @e2e
+@productCatalog @e2e @resetAppState
 Feature: Browsing products from Swag Labs
   As a user
   I want to be able to browse products from Swag Labs
