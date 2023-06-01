@@ -69,7 +69,14 @@ export const config: Options.Testrunner = {
                 directory_upgrade: true,
                 default_directory: path.join(process.cwd(), 'test-data', 'downloads')
               }
-            }
+            },
+            args: ['--headless',
+              '--no-sandbox',
+              '--disable-infobars',
+              '--disable-dev-shm-usage',
+              '--disable-gpu',
+              '--disable-extensions',
+              '--remote-debugging-port=9222']
           }
         }
       ],
