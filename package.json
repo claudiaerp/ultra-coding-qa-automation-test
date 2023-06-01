@@ -16,13 +16,13 @@
         "report:sandwich": "java -jar support/cucumber-sandwich.jar -n -f reports/json-reports -o reports/",
         "report:clean": "rimraf reports/json-reports/",
         "prepare": "husky install",
-        "wdio": "wdio run ./wdio.conf.ts"
+        "ci": "npm run report:clean && npx wdio run config/wdio.chrome.conf.ts --cucumberOpts.tagExpression='@e2e'"
     },
     "dependencies": {
         "@commitlint/prompt-cli": "^17.6.3",
         "@typescript-eslint/eslint-plugin": "^5.59.7",
         "@typescript-eslint/parser": "^5.59.7",
-        "@wdio/cli": "^8.10.5",
+        "@wdio/cli": "8.10.5",
         "@wdio/reporter": "^8.10.4",
         "chai-sorted": "^0.2.0",
         "cucumber-pretty": "^6.0.1",
@@ -65,8 +65,7 @@
         "typescript": "^5.0.4",
         "typescript-string-operations": "^1.5.0",
         "wdio-chromedriver-service": "^8.1.1",
-        "wdio-cucumberjs-json-reporter": "^5.1.4",
-        "wdio-json-reporter": "^3.0.0"
+        "wdio-cucumberjs-json-reporter": "^5.1.4"
     },
     "husky": {
         "hooks": {
